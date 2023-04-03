@@ -5,70 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Essential destiny</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        *{
-            box-sizing: border-box;
-            text-align: center;
-            
-        }
-        .header{
-            background-color: rgb(181, 156, 204);
-            width: 100%;
-            height: 60px;
-        }
-        .footer{
-            background-color: rgb(78, 174, 230);
-            width: 100%;
-            height: 40px;
-            float: left;
-            
-        }
-        .menu{
-            background-color: rgb(29, 163, 152);
-            width: 25%;
-            float: left;
-            
-        }
-        .dashboard{
-            background-color: beige;
-            width: 50%;
-            float: left;
-        }
-        .rss{
-            background-color: aqua;
-            width: 25%;
-            float: left;
-        }
-        .main{
-            background-color: rgb(126, 233, 126);
-            width: 100%;
-            float: left;
-            height: 300px;
-        }
-        .img{
-            width: 100%;
-            height: 100%;
-            transition: 0.5s;
-            object-fit: cover;
-        }
-        .img: :hover{
-            transform: scale(1.2);
-        }
+        @import url(estilos.css);
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Su agencia de viajes #1</h1>
-    </div>
+    <div class="general">
+        <div class="container">
+            <div class="hCol1">
+                <nav>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">☰</label>
+            
+                    <ul>
+                        <li>
+                            <a href="Nosotros.html">Nosotros</a>
+                        </li>
+                        <li>
+                            <a href="Contacto.html">Contacto</a>
+                        </li>
+                        <li>
+                            <a href="Precio.html">Precio</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="header">
+                <h1>Su agencia de viajes #1</h1>
+            </div>
 
-    <div class="menu">
-        <a href="Nosotros.html">Nosotros</a>
-        <a href="Contacto.html">Contacto</a>
-        <a href="Precio.html">Precio</a>
-    </div>
+            <div class="botones">
+                <div class="hCol2">
+                    <a href="https://www.googlemaps.com/" class="fa fa-globe"></a>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="main">
+            <h1>Hola prro</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate harum repellat, ab numquam, at omnis natus distinctio atque dignissimos enim laboriosam vitae, sequi aperiam quasi reiciendis laborum aspernatur! Recusandae!</p>
+        </div>
 
-    <div>
-        <img src="as.jpg">
+        <img src="Resources/as.jpg.webp">
+        
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores et ipsum aliquam culpa. Harum distinctio debitis incidunt odit animi labore consequatur. Dolores iusto, perferendis ratione est nesciunt labore quod? Error?</p>
+        
+        <img src="Resources/Viajes1.jpg">
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, excepturi. Quisquam eaque beatae quibusdam, quo tempore expedita optio veritatis dicta porro. Culpa accusantium eaque magni deleniti iste velit, est laboriosam.</p>
     </div>
 </body>
+<footer>
+    <div class="footer">
+        <h1>Footer</h1>
+        <div class="botones">
+            <a href="https://www.facebook.com/" class="fa fa-facebook-official"></a>
+            <a href="https://twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+            <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+        </div>
+
+        <p class="c-footer">© <span id="yearActual">2023</span> Essential Destiny | <a href="#">Términos de uso</a> | <a href="#">Politica de Privacidad</a> | <a href="#">Mapa de Sitio</a></p>
+
+    </div>
+</footer>
 </html>
