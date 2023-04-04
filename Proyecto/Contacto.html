@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential destiny</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url(estilosContacto.css);
+    </style>
+</head>
+<body>
+    <div class="general">
+        <div class="container">
+            <div class="hCol1">
+                <nav>
+                    <input type="checkbox" id="menu">
+                    <label for="menu">☰</label>
+            
+                    <ul>
+                        <li>
+                            <a href="Index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="CostaRica.html">Costa Rica</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="header">
+                <h1>Su agencia de viajes #1</h1>
+            </div>
+    
+            <div class="botones">
+                <div class="hCol2">
+                    <a href="https://www.googlemaps.com/" class="fa fa-globe"></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <h3 class="subtitulos">
+        Querido turista
+    </h3>
+
+    <p class="parrafos">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt excepturi eos odit, vero labore ea blanditiis quia dolore nostrum,
+        incidunt dignissimos doloribus non. Aliquam, fugiat id a veniam quia repellendus.
+    </p>
+
+    <div class="contact_form">
+
+        <div class="formulario">      
+          <h1>Formulario de contacto</h1>
+            <h3>Escríbenos y en breve los pondremos en contacto contigo</h3>
+    
+    
+              <form action="submeter-formulario.php" method="post">       
+    
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">Nombre
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+                    </p>
+                  
+                    <p>
+                      <label for="email" class="colocar_email">Email
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu Email">
+                    </p>
+                
+                    <p>
+                      <label for="telefone" class="colocar_telefono">Teléfono
+                      </label>
+                        <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
+                    </p>    
+                  
+                    <p>
+                      <label for="website" class="colocar_website">Sitio web
+                      </label>
+                        <input type="url" name="introducir_website" id="website" placeholder="Escribe la URL de tu web">
+                    </p>    
+                  
+                    <p>
+                      <label for="asunto" class="colocar_asunto">Asunto
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_asunto" id="assunto" required="obligatorio" placeholder="Escribe un asunto">
+                    </p>    
+                  
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
+                                    </p>                    
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+    
+
+    <div class="footer">
+        <h1>Footer</h1>
+        <div class="botones">
+            <a href="https://www.facebook.com/" class="fa fa-facebook-official"></a>
+            <a href="https://twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+            <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+
+            <div class="c-footer">
+                <p class="c-footer">© <span id="yearActual">2023</span> Essential Destiny | <a href="#">Términos de uso</a> | <a href="#">Politica de Privacidad</a> | <a href="#">Mapa de Sitio</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
