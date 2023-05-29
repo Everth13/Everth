@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div <div class="container-fluid">
+    <div class="container-fluid">
         <header>
             <!-- place navbar here -->
         </header>
@@ -38,7 +38,7 @@
                             <th>Botones</th>
                         </tr>
                     </thead>
-                    <tbody id="resultados" class="table-group-divider">
+                    <tbody class="table-group-divider" id="resultados">
                         <tr class="">
 
                         </tr>
@@ -73,7 +73,7 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="idInput" class="form-label">ID</label>
-                                    <input type="id" class="form-control" id="datosId">
+                                    <input type="id" class="form-control" id="datosId" value="type here">
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombreInput" class="form-label">Nombre</label>
@@ -91,12 +91,8 @@
                                     <label for="usuarioInput" class="form-label">Usuario</label>
                                     <input type="id" class="form-control" id="datosUsuario">
                                 </div>
-
-                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
-
                             <!-- Fin del formulario -->
-
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -122,7 +118,7 @@
 
         <!-- Modal Body -->
         <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-        <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+        <!-- <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
             role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
@@ -139,7 +135,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
         <!-- Optional: Place to the bottom of scripts -->
@@ -181,24 +177,44 @@
                         <td>${valor.descripcion}</td>
                         <td>${valor.tiempo}</td>
                         <td>${valor.usuario}</td>
-
                         <td>
-                            <a name="" id="" class="btn btn-danger" onclick="eliminar()" role="button">Borrar</a>
-                            ||
-                            <a name="" id="" data-bs-toggle="modal" data-bs-target="#modalId" class="btn btn-primary" onclick="editar('${valor.id})', '${valor.nombre}', '${valor.descripcion}', '${valor.tiempo}', '${valor.usuario}')" role="button">Editar</a>
-                        </td>
+                              <a name="" id="" class="btn btn-danger" onclick="eliminar('${valor.id}')" role="button">Borrar</a>
+                              ||
+                              <a name="" id="" class="btn btn-primary" onclick="editar('${valor.id}', '${valor.nombre}', '${valor.descripcion}', '${valor.tiempo}')" role="button">Editar</a>
+                            </td>
                         </tr>`;
             }
         }
         function editar(id, nombre, descripcion, tiempo) {
             alert('--' + nombre);
+            myModal.show();
+            document.getElementById('id').value = id;
+            document.getElementById('nombre').value = nombre;
+            document.getElementById('descripcion').value = descripcion;
+            document.getElementById('tiempo').value = tiempo;
         }
 
-        function eliminar() {
-            alert('eliminar');
+        function eliminar(id){
+            alert('eliminar' + id);
+            //       apis/BorrarCursos.php
+            // { "id":2 }
+            var datosenviar = {
+                id: id
+            }
+            fetch("https://paginas-web-cr.com/ApiPHP/apis/BorrarCursos.php",
+                {
+                    method: "POST",
+                    body: JSON.stringify(datosenviar)
+                })//url de peticion de datos
+                .then(respuesta => respuesta.json())//recibe los datos en formato json
+                .then((datosrepuesta) => {
+
+                    window.location = 'listarCurso.html'//Muestra el resultado de la peticion
+                })
+                .catch(console.log)//muestra errores
         }
 
-        cargarDatos();
+        function cargarDatos();
     </script>
 </body>
 
