@@ -1,45 +1,37 @@
 
 //Declaracion de variables u objetos
 var contenidoTablaResultado = document.querySelector('#resultados');
-//const myModal = new bootstrap.Modal(document.getElementById('modalId'));
-//var formulario = document.getElementById('formulario');
 var alertaC;
 var alertaT;
 
 function cargarDatos() {
-    fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php")//url de peticion de datos
-        .then((respuesta) => respuesta.json())//recibe los datos en formato json
-        .then((datosrepuesta) => {
-            setTable(datosrepuesta.data)//lo envio para la funcion para darle tratamiento
-            // console.log('Datos',datosrepuesta.data)//Muestra el resultado de la peticion
-        })
-        .catch(console.log)//muestra errores
+  fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php")
+    .then((respuesta) => respuesta.json())
+    .then((datosrepuesta) => {
+      setTable(datosrepuesta.data)
+    })
+    .catch(console.log)
 }
 
 function actualizarPagina() {
-    setTimeout(() => {
-      window.location.reload();
-    }, 100);
-  }// fin de la función actualizar pagina
+  setTimeout(() => {
+    window.location.reload();
+  }, 100);
+}
 
 function desplegarAlerta(colorAlerta, textoAlerta) {
-    //const mensajeAlerta = new bootstrap.Modal(document.getElementById('mensajeAlerta'));
-    var mensajeAlerta = document.querySelector("#mensajeAlerta");
-    //var alerta = '<div class="alert alert-' + colorAlerta + '" role="alert">' + textoAlerta + '</div>';
-    var alerta = '<div class="alert alert-'+colorAlerta+' alert-dismissible fade show" role="alert">'
-      +textoAlerta+'<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="btnAlerta"></button></div>'
-      alertaMensaje = new bootstrap.alert(alerta);
-      alertaMensaje.show();
-      alerta.onclick=() => actualizarPagina();
-    
-    //mensajeAlerta.innerHTML='<div class="alert alert-'+colorAlert+'" role="alert">'+textoAlerta+'</div>';
-    //mensajeAlerta.show();
+  var mensajeAlerta = document.querySelector("#mensajeAlerta");
+  var alerta = '<div class="alert alert-' + colorAlerta + ' alert-dismissible fade show" role="alert">'
+    + textoAlerta + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="btnAlerta"></button></div>'
+  alertaMensaje = new bootstrap.alert(alerta);
+  alertaMensaje.show();
+  alerta.onclick = () => actualizarPagina();
 }
-  
+
 function setTable(datos) {
-    console.log('datos', datos);
-    for (const valor of datos) {
-        contenidoTablaResultado.innerHTML += `
+  console.log('datos', datos);
+  for (const valor of datos) {
+    contenidoTablaResultado.innerHTML += `
             <tr class="table-primary" >
                 <td scope="row">${valor.id}</td>
                 <td>${valor.nombre}</td>
@@ -53,52 +45,51 @@ function setTable(datos) {
                 <button type="button" class="btn btn-danger" onclick="borrar('${valor.id}','${valor.nombre}' )">Borrar</button>   
                 </td>
             </tr>`;
-    }
+  }
 }
 
 function editar(id, nombre, descripcion, tiempo, usuario) {
-    const myModal = new boobstrap.Modal(document.getElementById('modalEdit'));
-    myModal.show();
-    document.getElementById('nombreC').value = nombre;
-    document.getElementById('descripcionC').value = descripcion;
-    document.getElementById('tiempoC').value = tiempo;
-    document.getElementById('usuarioC').value = usuario;
+  const myModal = new boobstrap.Modal(document.getElementById('modalEdit'));
+  myModal.show();
+  document.getElementById('editarNombre').value = nombre;
+  document.getElementById('editarDescripcion').value = descripcion;
+  document.getElementById('editarTiempo').value = tiempo;
+  document.getElementById('editarUsuario').value = usuario;
 
-    var formulario = document.getElementById('formEditar');
-    formulario.addEventListener('submit', function (e){
-        var datosEnviar = {
-            id: id,
-            nombre: document.getElementById('nombreC').value,
-            descripcion: document.getElementById('descripcionC').value,
-            tiempo: document.getElementById('tiempoC').value,
-            usuario: document.getElementById("usuarioC").value
-        }
-        console.log(datosEnviar);
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php", {
-            method: 'POST',
-            body: JSON.stringify(datosEnviar)
-        })
-            .then((respuesta) => respuesta.json())
-            .then((datosrepuesta) => {
-            })
-            .catch(console.log);
-            e.preventDefault();
-            actualizarPagina();
+  var formulario = document.getElementById('formEditar');
+  formulario.addEventListener('submit', function (e) {
+    var datosEnviar = {
+      id: id,
+      nombre: document.getElementById('editarNombre').value,
+      descripcion: document.getElementById('editarDescripcion').value,
+      tiempo: document.getElementById('editarTiempo').value,
+      usuario: document.getElementById("editarUsuario").value
+    }
+    console.log(datosEnviar);
+    fetch("https://paginas-web-cr.com/ApiPHP/apis/ActualizarCursos.php", {
+      method: 'POST',
+      body: JSON.stringify(datosEnviar)
     })
+      .then((respuesta) => respuesta.json())
+      .then((datosrepuesta) => {
+      })
+      .catch(console.log);
+    e.preventDefault();
+    actualizarPagina();
+  })
 
 }
 
+function borrar(id, nombre) {
+  const modalDel = new boobstrap.Modal(document.getElementById('modalBorrar'));
+  modalDel.show();
+  document.getElementById('idElim').value = id;
+  document.getElementById('nombreElim').value = nombre;
+  alertaC = 'danger';
+  alertaT = 'El curso se elimino correctamente';
 
-function eliminar(id, nombre) {
-    const modalDel = new boobstrap.Modal(document.getElementById('modalEliminar'));
-    modalDel.show();
-    document.getElementById('idElim').value = id;
-    document.getElementById('nombreElim').value = nombre;
-    alertaC = 'danger';
-    alertaT = 'El curso se elimino correctamente';
-    
-    var formulario = document.getElementById('formBorrar');
-    formulario.addEventListener('submit', function (e) {
+  var formulario = document.getElementById('formBorrar');
+  formulario.addEventListener('submit', function (e) {
 
     var datosEnviar = {
       id: id,
@@ -108,54 +99,53 @@ function eliminar(id, nombre) {
       method: 'POST',
       body: JSON.stringify(datosEnviar)
     })
-      .then((respuesta) => respuesta.json()) //recibe los datos em formato json
+      .then((respuesta) => respuesta.json())
       .then((datosrespuesta) => {
-        //lo envio a la funcion de abajo
         console.log('Datos', datosrespuesta.data);
       })
-      e.preventDefault();
-      actualizarPagina();
-    
+    e.preventDefault();
+    actualizarPagina();
+
     alert('El curso se eliminó correctamente')
   })
 }
 
-function crear(){
-    const myModal = new boobstrap.Modal(document.getElementById('modalCrear'));
-    myModal.show();
+function crear() {
+  const myModal = new boobstrap.Modal(document.getElementById('modalCrear'));
+  myModal.show();
 
-    var formulario = document.getElementById('formCrear');
-    formulario.addEventListener('submit', function(e){
-        e.preventDefault();
-        
-        var datosEnviar = {
-            nombre: document.getElementById('crNombre').value,
-            descripcion: document.getElementById('crDescripcion').value,
-            tiempo: document.getElementById('crTiempo').value,
-            usuario: 'Everth'
-        }
-        console.log(datosEnviar);
-        fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php", {
-            method: 'POST',
-            body: JSON.stringify(datosEnviar)
-        })
-            .then((respuesta) => respuesta.json())
-            .then((datosrepuesta) => {               
-            })
-            .catch(console.log);
-            alert('Curso creado');
-            actualizarPagina();
+  var formulario = document.getElementById('formCrear');
+  formulario.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var datosEnviar = {
+      nombre: document.getElementById('crearNombre').value,
+      descripcion: document.getElementById('crearDescripcion').value,
+      tiempo: document.getElementById('crearTiempo').value,
+      usuario: 'Everth'
+    }
+    console.log(datosEnviar);
+    fetch("https://paginas-web-cr.com/ApiPHP/apis/InsertarCursos.php", {
+      method: 'POST',
+      body: JSON.stringify(datosEnviar)
     })
+      .then((respuesta) => respuesta.json())
+      .then((datosrepuesta) => {
+      })
+      .catch(console.log);
+    alert('Curso creado');
+    actualizarPagina();
+  })
 }
 
-function detalles(id, nombre, descripcion, tiempo, usuario){
-    const myModal = new boobstrap.Modal(document.getElementById('modalDetalles'));
-    myModal.show();
-    document.getElementById('detId').value = id;
-    document.getElementById('detNombre').value = nombre;
-    document.getElementById('detDescripcion').value = descripcion;
-    document.getElementById('detTiempo').value = tiempo;
-    document.getElementById('detUsuario').value = usuario;
+function detalles(id, nombre, descripcion, tiempo, usuario) {
+  const myModal = new boobstrap.Modal(document.getElementById('modalDetalles'));
+  myModal.show();
+  document.getElementById('detId').value = id;
+  document.getElementById('detNombre').value = nombre;
+  document.getElementById('detDescripcion').value = descripcion;
+  document.getElementById('detTiempo').value = tiempo;
+  document.getElementById('detUsuario').value = usuario;
 }
 
 cargarDatos();
