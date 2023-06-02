@@ -10,7 +10,7 @@ function cargarDatos() {
     fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaCurso.php")//url de peticion de datos
         .then((respuesta) => respuesta.json())//recibe los datos en formato json
         .then((datosrepuesta) => {
-            steTabla(datosrepuesta.data)//lo envio para la funcion para darle tratamiento
+            setTable(datosrepuesta.data)//lo envio para la funcion para darle tratamiento
             // console.log('Datos',datosrepuesta.data)//Muestra el resultado de la peticion
         })
         .catch(console.log)//muestra errores
@@ -36,7 +36,7 @@ function desplegarAlerta(colorAlerta, textoAlerta) {
     //mensajeAlerta.show();
 }
   
-function setTabla(datos) {
+function setTable(datos) {
     console.log('datos', datos);
     for (const valor of datos) {
         contenidoTablaResultado.innerHTML += `
@@ -149,12 +149,12 @@ function crear(){
 }
 
 function detalles(id, nombre, descripcion, tiempo, usuario){
-    const myModal = new boobstrap.Modal(document.getElementById('formDet'));
+    const myModal = new boobstrap.Modal(document.getElementById('modalDetalles'));
     myModal.show();
     document.getElementById('detId').value = id;
     document.getElementById('detNombre').value = nombre;
     document.getElementById('detDescripcion').value = descripcion;
-    document.getElementById('deTiempo').value = tiempo;
+    document.getElementById('detTiempo').value = tiempo;
     document.getElementById('detUsuario').value = usuario;
 }
 
