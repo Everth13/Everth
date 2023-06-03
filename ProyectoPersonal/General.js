@@ -41,11 +41,12 @@ contenido.innerHTML +=
 
 cuerpo.innerHTML +=
   `
-    <div class="container">
-        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum aperiam fugit rem porro similique minima adipisci itaque accusantium libero? A mollitia, neque sunt praesentium saepe et ipsa velit odio est.
+<div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, repudiandae sunt? Mollitia ratione, quaerat
+        dolore omnis dolorum temporibus numquam soluta? Laborum eum repellendus iusto vel delectus voluptate, mollitia
+        quasi reiciendis!
     </div>
-    </div>
-`;
+`
 
 vFooter.innerHTML +=
   `<footer class="bg-dark py-5 mt-5">
