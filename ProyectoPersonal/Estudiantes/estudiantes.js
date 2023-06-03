@@ -27,6 +27,7 @@ function setTable(datos) {
         <td>${valor.telefonocelular}</td>
         <td>${valor.fechanacimiento}</td>
         <td>${valor.sexo}</td>
+        <td>${valor.direccion}</td>
         <td>${valor.nombre}</td>
         <td>${valor.apellidopaterno}</td>
         <td>${valor.apellidomaterno}</td>
@@ -45,7 +46,7 @@ function setTable(datos) {
           '${valor.direccion}','${valor.nombre}','${valor.apellidopaterno}'
           ,'${valor.apellidomaterno}','${valor.nacionalidad}','${valor.idCarreras}'
           ,'${valor.usuario}')">Editar</button>|| 
-          <button type="button" class="btn btn-danger"  onclick="eliminar('${valor.id}','${valor.cedula}','${valor.nombre}' )">Eliminar</button>   
+          <button type="button" class="btn btn-danger"  onclick="borrar('${valor.id}','${valor.cedula}','${valor.nombre}' )">Eliminar</button>   
         </td>
       </tr>`;
     }
@@ -228,14 +229,14 @@ function editar(
 //Fin de la funcion editar
 
 //Inicio de la funcion eliminar
-function elminar(id, cedula, nombre) {
-    const modalDelete = new bootstrap.Modal(document.getElementById('modalEliminar'));
+function borrar(id, cedula, nombre) {
+    const modalDelete = new bootstrap.Modal(document.getElementById('modalBorrar'));
     modalDelete.show();
-    document.getElementById('eliminarId').value = id;
-    document.getElementById('eliminarCedula').value = cedula;
-    document.getElementById('eliminarNombre').value = nombre;
+    document.getElementById('borrarId').value = id;
+    document.getElementById('borrarCedula').value = cedula;
+    document.getElementById('borrarNombre').value = nombre;
   
-    var formulario = document.getElementById('formEliminar');
+    var formulario = document.getElementById('formularioBorrar');
       formulario.addEventListener('submit', function (e) {
   
     var datosEnviar = {

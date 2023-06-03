@@ -53,7 +53,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Registrar Estudiante</h5>
+                    <h5 class="modal-title">Registrar usuarios</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -62,20 +62,20 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label for="" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" name="nombre" id="crearCedula"
+                                    <input type="text" class="form-control" name="nombre" id="crearNombre"
                                         aria-describedby="helpId" placeholder="Ingrese el nombre" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="email" id="crearCorreo"
+                                    <input type="email" class="form-control" name="email" id="crearEmail"
                                         aria-describedby="helpId" placeholder="Ingrese el correo" required>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="" class="form-label">Password</label>
-                                    <input type="number" class="form-control" name="password" id="crearPassword"
-                                        aria-describedby="helpId" placeholder="Ingrese el teléfono" required>
+                                    <input type="text" class="form-control" name="password" id="crearPassword"
+                                        aria-describedby="helpId" placeholder="Ingrese la contraseña" required>
                                 </div>
                             </div>
                         </div>
@@ -96,12 +96,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">¿Desea eliminar este usuario?</h5>
+                    <h5 class="modal-title">Edtar datos del usuario</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
                     <form id="formularioEditar">
+                        <div class="mb-3">
+                            <label for="" class="form-label">ID</label>
+                            <input type="text" class="form-control" name="id" id="editarId"
+                                aria-describedby="helpId" placeholder="Ingrese el id">
+                        </div>
+
                         <div class="mb-3">
                             <label for="" class="form-label">Nombre</label>
                             <input type="text" class="form-control" name="nombre" id="editarNombre"
@@ -114,13 +120,8 @@
                                 aria-describedby="helpId" placeholder="Ingrese el email">
                         </div>
 
-                        <div class="mb-3">
-                            <label for="" class="form-label">Password</label>
-                            <input type="text" class="form-control" name="password" id="editarPassword"
-                                aria-describedby="helpId" placeholder="Ingrese el password">
-                        </div>
-
                         <button type="submit" class="btn btn-danger">Borrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </form>
                 </div>
                 <div class="modal-footer">

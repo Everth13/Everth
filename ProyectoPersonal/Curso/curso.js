@@ -49,14 +49,14 @@ function setTable(datos) {
 }
 
 function editar(id, nombre, descripcion, tiempo, usuario) {
-  const myModal = new boobstrap.Modal(document.getElementById('modalEdit'));
+  const myModal = new boobstrap.Modal(document.getElementById('modalEditar'));
   myModal.show();
   document.getElementById('editarNombre').value = nombre;
   document.getElementById('editarDescripcion').value = descripcion;
   document.getElementById('editarTiempo').value = tiempo;
   document.getElementById('editarUsuario').value = usuario;
 
-  var formulario = document.getElementById('formEditar');
+  var formulario = document.getElementById('formularioEditar');
   formulario.addEventListener('submit', function (e) {
     var datosEnviar = {
       id: id,
@@ -83,12 +83,12 @@ function editar(id, nombre, descripcion, tiempo, usuario) {
 function borrar(id, nombre) {
   const modalDel = new boobstrap.Modal(document.getElementById('modalBorrar'));
   modalDel.show();
-  document.getElementById('idElim').value = id;
-  document.getElementById('nombreElim').value = nombre;
+  document.getElementById('borrarId').value = id;
+  document.getElementById('borrarNombre').value = nombre;
   alertaC = 'danger';
   alertaT = 'El curso se elimino correctamente';
 
-  var formulario = document.getElementById('formBorrar');
+  var formulario = document.getElementById('formularioBorrar');
   formulario.addEventListener('submit', function (e) {
 
     var datosEnviar = {
@@ -114,7 +114,7 @@ function crear() {
   const myModal = new boobstrap.Modal(document.getElementById('modalCrear'));
   myModal.show();
 
-  var formulario = document.getElementById('formCrear');
+  var formulario = document.getElementById('formularioCrear');
   formulario.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -141,11 +141,11 @@ function crear() {
 function detalles(id, nombre, descripcion, tiempo, usuario) {
   const myModal = new boobstrap.Modal(document.getElementById('modalDetalles'));
   myModal.show();
-  document.getElementById('detId').value = id;
-  document.getElementById('detNombre').value = nombre;
-  document.getElementById('detDescripcion').value = descripcion;
-  document.getElementById('detTiempo').value = tiempo;
-  document.getElementById('detUsuario').value = usuario;
+  document.getElementById('detallesId').value = id;
+  document.getElementById('detallesNombre').value = nombre;
+  document.getElementById('detallesDescripcion').value = descripcion;
+  document.getElementById('detallesTiempo').value = tiempo;
+  document.getElementById('detallesUsuario').value = usuario;
 }
 
 cargarDatos();

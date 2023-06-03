@@ -16,76 +16,78 @@
 </head>
 
 <body>
-    <header>
-        <div id="contenido"></div>
-    </header>
+    <div class="container-fluid">
+        <header>
+            <div id="contenido"></div>
+        </header>
+        <main>
+            <div class="table-responsive">
+                <div class="container-fluid mb-3 mt-3">
+                    <button type="button" class="btn btn-dark" onclick="crear()">Crear</button>
 
-    <main>
-        <div class="table-responsive">
-            <div class="container-fluid mb-3 mt-3">
-                <button type="button" class="btn btn-dark" onclick="crear()">Crear</button>
-
+                </div>
+                <table class="table table-striped table-hover table-borderless table-Secundary align-middle">
+                    <thead class="table-light">
+                        <caption>
+                            Lista de cursos
+                        </caption>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Tiempo</th>
+                            <th>Usuario</th>
+                            <th>Botones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resultados" class="table-group-divider"></tbody>
+                    <tfoot></tfoot>
+                </table>
             </div>
-            <table class="table table-striped table-hover table-borderless table-Secundary align-middle">
-                <thead class="table-light">
-                    <caption>
-                        Lista de cursos
-                    </caption>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Tiempo</th>
-                        <th>Usuario</th>
-                        <th>Botones</th>
-                    </tr>
-                </thead>
-                <tbody id="resultados" class="table-group-divider"></tbody>
-                <tfoot></tfoot>
-            </table>
-        </div>
-        <div id="cuerpo"></div>
+            <div id="cuerpo">
+                
+            </div>
+        </main>
+        <footer id="vFooter">
+        </footer>
+    </div>
 
-        <div></div>
-    </main>
-    <footer id="vFooter">
-    </footer>
 
     <!-- Modal para editar-->
-    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div id="modalEditar" class="modal" tabindex="-1">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Modal editar</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditar">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="editarNombre" aria-describedby="helpId"
-                                placeholder="Ingrese el nombre" required>
-                            <small id="helpId" class="form-text text-muted">Ingrese el nombre del curso</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" name="descripcion" id="editarDescripcion"
-                                aria-describedby="helpId" placeholder="Ingrese el nombre" required>
-                            <small id="helpId" class="form-text text-muted">Ingrese la descripcion del
-                                curso</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Tiempo</label>
-                            <input type="text" class="form-control" name="tiempo" id="editarTiempo"
-                                aria-describedby="helpId" placeholder="Ingrese el nombre" required>
-                            <small id="helpId" class="form-text text-muted">Ingrese el tiempo del curso</small>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="editarUsuario"
-                                aria-describedby="helpId" placeholder="Ingrese el nombre" required>
-                            <small id="helpId" class="form-text text-muted">Ingrese el usuario del curso</small>
+                    <form id="formularioEditar">
+                        <div class="row justify-content-center align-items-center g-2 container-fluid">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" id="editarNombre"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Descripcion</label>
+                                    <input type="text" class="form-control" name="descripcion" id="editarDescripcion"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Tiempo</label>
+                                    <input type="text" class="form-control" name="tiempo" id="editarTiempo"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Usuario</label>
+                                    <input type="text" class="form-control" name="usuario" id="editarUsuario"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required>
+                                </div>
+                            </div>
                         </div>
                         <button type="reset" class="btn btn-danger">Reset</button>
                         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -104,24 +106,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title">Desea eliminar el elemento</div>
+                    <div class="modal-title">¿Desea eliminar el curso?</div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
-                    <form id="formBorrar">
+                    <form id="formularioBorrar">
                         <div class="mb-3">
                             <label for="" class="form-label">ID</label>
-                            <input type="text" class="form-control" name="nombre" id="idElim" aria-describedby="helpId"
-                                placeholder="Ingrese el nombre" disabled>
-                            <small id="helpId" class="form-text text-muted">ID del curso</small>
+                            <input type="text" class="form-control" name="id" id="borrarId" aria-describedby="helpId"
+                                placeholder="Ingrese el id" disabled>
                         </div>
 
                         <div class="mb-3">
                             <label for="" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="descripcion" id="nombreElim"
-                                aria-describedby="helpId" placeholder="Ingerese la descripcion" disabled>
-                            <small id="helpId" class="form-text text-muted">Nombre del curso</small>
+                            <input type="text" class="form-control" name="nombre" id="borrarNombre"
+                                aria-describedby="helpId" placeholder="Ingerese el nombre" disabled>
                         </div>
 
                         <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -145,32 +144,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-                    <form id="formDetalles">
-                        <div class="mb-3">
-                            <label for="" class="form-label">ID</label>
-                            <input type="text" class="form-control" name="id" id="detId" aria-describedby="helpId"
-                                placeholder="Ingrese el nombre" required disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="detNombre"
-                                aria-describedby="helpId" placeholder="Ingrese el nombre" required disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" name="descripcion" id="detDescripcion"
-                                aria-describedby="helpId" placeholder="Ingrese la descripcion" required disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Tiempo</label>
-                            <input type="text" class="form-control" name="tiempo" id="detTiempo"
-                                aria-describedby="helpId" placeholder="Ingrese la descripcion" required disabled>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="detUsuario"
-                                aria-describedby="helpId" placeholder="Ingrese la descripcion" required disabled>
+                    <form id="formularioDetalles">
+                        <div class="row justify-content-center align-items-center g-2 container-fluid">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="" class="form-label">ID</label>
+                                    <input type="text" class="form-control" name="id" id="detallesId"
+                                        aria-describedby="helpId" placeholder="Ingrese el id" required disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" id="detallesNombre"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Descripcion</label>
+                                    <input type="text" class="form-control" name="descripcion" id="detallesDescripcion"
+                                        aria-describedby="helpId" placeholder="Ingrese la descripcion" required
+                                        disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Tiempo</label>
+                                    <input type="text" class="form-control" name="tiempo" id="detallesTiempo"
+                                        aria-describedby="helpId" placeholder="Ingrese el tiempo" required disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Usuario</label>
+                                    <input type="text" class="form-control" name="usuario" id="detallesUsuario"
+                                        aria-describedby="helpId" placeholder="Ingrese el usuario" required disabled>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -192,33 +195,35 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="formCrear">
-                        <div class="mb-3">
-                            <label for="" class="form-lable">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" id="crearNombre"
-                                aria-describedby="helpId" placeholder="Ingrese el nombre" required>
-                            <small id="helpId" class="form-text text-muted">Tiempo del curso</small>
-                        </div>
+                    <form id="formularioCrear">
+                        <div class="row justify-content-center align-items-center g-2 container-fluid">
+                            <div class="col">
+                                <div class="mb-3">
+                                    <label for="" class="form-lable">Nombre</label>
+                                    <input type="text" class="form-control" name="nombre" id="crearNombre"
+                                        aria-describedby="helpId" placeholder="Ingrese el nombre" required>
+                                </div>
 
-                        <div class="mb-3">
-                            <label for="" class="form-label">Descripcion</label>
-                            <input type="text" class="form-control" name="descripcion" id="crearDescripcion"
-                                aria-describedby="helpId" placeholder="Ingrese la descripcion" required>
-                            <small id="helpId" class="form-text text-muted">Descripcion del curso</small>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Descripcion</label>
+                                    <input type="text" class="form-control" name="descripcion" id="crearDescripcion"
+                                        aria-describedby="helpId" placeholder="Ingrese la descripcion" required>
+                                </div>
 
-                        <div class="mb-3">
-                            <label for="" class="form-label">Tiempo</label>
-                            <input type="number" class="form-control" name="tiempo" id="crearTiempo" min="1" max="24"
-                                aria-describedby="helpId" placeholder="Ingrese la duracion del curso (meses)" required>
-                            <small id="helpId" class="form-text text-muted">Tiempo del curso</small>
-                        </div>
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Tiempo</label>
+                                    <input type="number" class="form-control" name="tiempo" id="crearTiempo" min="1"
+                                        max="24" aria-describedby="helpId"
+                                        placeholder="Ingrese la duracion del curso (meses)" required>
+                                </div>
 
-                        <button type="reset" class="btn btn-danger">Limpiar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="reset" class="btn btn-danger">Limpiar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

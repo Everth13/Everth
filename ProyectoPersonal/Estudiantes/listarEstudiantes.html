@@ -37,6 +37,7 @@
             <th>Teléfono Celular</th>
             <th>Fecha de Nacimiento</th>
             <th>Sexo</th>
+            <th>Direccion</th>
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
@@ -345,7 +346,7 @@
 
                 <div class="mb-3">
                   <label for="" class="form-label">Apellido materno</label>
-                  <input type="text" class="form-control" name="apellidoM" id="editarApMterno" aria-describedby="helpId"
+                  <input type="text" class="form-control" name="apellidoM" id="editarApMaterno" aria-describedby="helpId"
                     placeholder="Ingrese el apellido materno">
                 </div>
 
@@ -382,7 +383,7 @@
   <!-- Fin del formulario para editar -->
 
   <!-- Inicio del formulario para eliminar -->
-  <div id="modalEliminar" class="modal" tabindex="-1">
+  <div id="modalBorrar" class="modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -391,22 +392,22 @@
         </div>
         <div class="modal-body">
 
-          <form id="formEliminar">
+          <form id="formularioBorrar">
             <div class="mb-3">
               <label for="" class="form-label">ID</label>
-              <input type="text" class="form-control" id="eliminarId" aria-describedby="helpId"
+              <input type="text" class="form-control" id="borrarId" aria-describedby="helpId"
                 placeholder="Ingrese el ID" required disabled>
             </div>
 
             <div class="mb-3">
               <label for="" class="form-label">Cédula</label>
-              <input type="text" class="form-control" id="eliminarCedula" aria-describedby="helpId"
+              <input type="text" class="form-control" id="borrarCedula" aria-describedby="helpId"
                 placeholder="Ingrese la cédula" required disabled>
             </div>
 
             <div class="mb-3">
               <label for="" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="eliminarNombre" aria-describedby="helpId"
+              <input type="text" class="form-control" id="borrarNombre" aria-describedby="helpId"
                 placeholder="Ingrese el nombre" required disabled>
             </div>
 

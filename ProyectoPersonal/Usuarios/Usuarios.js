@@ -23,8 +23,7 @@ function setTable(datos) {
         <td>${valor.password}</td>
         <td>
           <button type="button" class="btn btn-success" onclick="detalles('${valor.id}','${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')">Ver detalles</button>||
-          <button type="button" class="btn btn-primary" onclick="editar('${valor.id}','${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')">Editar</button>|| 
-          <button type="button" class="btn btn-danger" onclick="borrar('${valor.id}','${valor.nombre}' )">Borrar</button>   
+          <button type="button" class="btn btn-primary" onclick="editar('${valor.id}','${valor.nombre}','${valor.descripcion}','${valor.tiempo}','${valor.usuario}')">Editar</button>
         </td>
       </tr>`;
     }
@@ -56,8 +55,8 @@ function crear() {
 
         var datosEnviar = {
             nombre: document.getElementById('crearNombre').value,
-            email: document.getElementById('crearEmail').value,
-            password: document.getElementById('crearPassword').value
+            password: document.getElementById('crearPassword').value,
+            email: document.getElementById('crearEmail').value
         }
 
         console.log(datosEnviar);
@@ -76,13 +75,14 @@ function crear() {
 }
 
 function editar(
-    nombre, email, password,
+    nombre, email, id,
 ) {
     const modalEdit = new bootstrap.Modal(document.getElementById('modalEditar'));
     modalEdit.show();
     document.getElementById('editarNombre').value = nombre;
     document.getElementById('editarEmail').value = email;
-    document.getElementById('editarPassword').value = password;
+    document.getElementById('editarId').value = id;
+
 
     var formulario = document.getElementById('formularioEditar');
     formulario.addEventListener('submit', function (e) {
@@ -91,7 +91,8 @@ function editar(
         var datosEnviar = {
             nombre: document.getElementById('editarNombre').value,
             email: document.getElementById('editarEmail').value,
-            password: document.getElementById('editarPassword').value,
+            id: document.getElementById('editarId').value,
+
         }
 
         console.log(datosEnviar);
@@ -104,7 +105,7 @@ function editar(
             .then((datosrespuesta) => {
             })
             .catch(console.log);
-        alert('Estudiante actualizado correctamente');
+        alert('Usuario actualizado correctamente');
         actualizarPagina();
     })
 }
