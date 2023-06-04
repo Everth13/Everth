@@ -15,23 +15,23 @@ contenido.innerHTML +=
             <ul class="navbar-nav">
           
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/ProyectoPersonal/Curso/listarCurso.html">Cursos</a>
+                <a class="nav-link " aria-current="page" href="/ProyectoPersonal_C06449/Curso/listarCurso.html">Cursos</a>
               </li>
               
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/ProyectoPersonal/Estudiantes/listarEstudiantes.html">Estudiantes</a>
+                <a class="nav-link " aria-current="page" href="/ProyectoPersonal_C06449/Estudiantes/listarEstudiantes.html">Estudiantes</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/ProyectoPersonal/Profesores/Profesores.html">Profesores</a>
+                <a class="nav-link " aria-current="page" href="/ProyectoPersonal_C06449/Profesores/Profesores.html">Profesores</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/ProyectoPersonal/Grupos/Grupos.html">Grupos</a>
+                <a class="nav-link " aria-current="page" href="/ProyectoPersonal_C06449/Grupos/Grupos.html">Grupos</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/ProyectoPersonal/Usuarios/Usuarios.html">Usuarios</a>
+                <a class="nav-link " aria-current="page" href="/ProyectoPersonal_C06449/Usuarios/Usuarios.html">Usuarios</a>
               </li>
             </ul>
           </div>
