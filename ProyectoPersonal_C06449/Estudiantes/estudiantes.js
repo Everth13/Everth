@@ -54,7 +54,7 @@ function setTable(datos) {
 }
 //Funciones para pintar los datos de los grupos disponibles
 function pintarSelect() {
-    fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaGrupo.php")
+    fetch("https://paginas-web-cr.com/ApiPHP/apis/ListaEstudiantes.php")
         .then((respuesta) => respuesta.json())
         .then((datosrespuesta) => {
             setSelect(datosrespuesta.data); 
